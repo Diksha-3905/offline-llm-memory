@@ -1,0 +1,47 @@
+import json
+import requests
+import os
+
+MEMORY_FILE = "memory.json"
+
+# Load memory
+if os.path.exists(MEMORY_FILE):
+    with open(MEMORY_FILE, "r") as f:
+        memory = json.load(f)
+else:
+    memory = []
+
+def ask_llm(prompt):
+    # Include previous memory in the prompt
+    context = "\n".join(memory[-5:])  # last 5 exchanges
+    full_prompt = context + "\nUser: " + prompt + "\nAssistant:"
+
+    response = requests.post(
+        "http://localhost:11434/api/generate",
+        json={"model": "llama3", "prompt": full_prompt},
+        stream=True
+    )
+
+    reply = ""
+    for line in response.iter_lines():
+        if line:
+            data = line.decode("utf-8")
+            if '"response"' in data:
+                text = data.split('"response":"')[1].split('"')[0]
+                print(text, end="", flush=True)
+                reply += text
+    print("\n")
+
+    # Save memory
+    memory.append(f"User: {prompt}")
+    memory.append(f"Assistant: {reply}")
+    with open(MEMORY_FILE, "w") as f:
+        json.dump(memory, f)
+
+print("🤖 Offline LLM Chat with Memory (type 'exit' to quit)")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() in ["exit", "quit"]:
+        print("👋 Goodbye!")
+        break
+    ask_llm(user_input)
