@@ -3,12 +3,12 @@
 A lightweight, offline memory module for LLM-based chat agents
 (Repository by Diksha — GitHub: Diksha-3905)
 
-🎯 Project Overview
+# 🎯 Project Overview
 
 offline-llm-memory is designed to serve as a simple memory store for conversational agents built on large language models (LLMs). Instead of relying on cloud APIs or remote memory services, this tool enables fully offline memory persistence, enabling the agent to recall past parts of the conversation or relevant context across sessions.
 Ideal for local experiments, lightweight prototypes, privacy-sensitive contexts, or educational setups.
 
-🚀 Key Features
+# 🚀 Key Features
 
 Plain-file (“JSON”) memory store for simplicity & transparency (memory.json).
 
@@ -20,7 +20,7 @@ Supports storing past chats, relevant facts, or custom metadata for future retri
 
 Fully offline by design — no external database dependencies, minimal setup.
 
-🧩 Architecture & Usage
+# 🧩 Architecture & Usage
 Folder Structure
 data_pdfs/         # (Optional) folder to store PDF assets or offline data you want the agent to reference  
 chat.py            # Entry-line sample chat interface  
@@ -37,7 +37,7 @@ from memory_store import MemoryStore
 
 store = MemoryStore("memory.json")
 store.load()   # load existing memory
-# ... during conversation ...
+# during conversation 
 store.add_entry({"speaker": "user", "text": "...", "timestamp": "...", "tags": [...]})
 store.save()   # persist changes
 
@@ -46,7 +46,7 @@ In chat.py, you’ll find an example loop where user inputs are read, memory que
 
 The data_pdfs/ folder is a placeholder for offline resources; if you add PDF processing or offline retrieval logic, place them here and modify memory_store.py or chat.py accordingly.
 
-📦 Installation & Requirements
+# 📦 Installation & Requirements
 
 Python 3.7+ (preferably 3.9 or newer)
 
@@ -57,7 +57,7 @@ Clone the repository:
 git clone https://github.com/Diksha-3905/offline-llm-memory.git
 cd offline-llm-memory
 
-🛠️ Extending & Customizing
+# 🛠️ Extending & Customizing
 
 Here are some suggestions for how you can evolve this project:
 
@@ -71,7 +71,7 @@ Add support for PDF/text ingestion, summarisation of documents, and adding them 
 
 Create a web UI using Gradio or Streamlit for interactive chat + memory inspection.
 
-📝 Example Workflow
+# 📝 Example Workflow
 
 Start chat: python chat.py
 
@@ -85,7 +85,7 @@ Later in the session or in a new session: The agent can retrieve that Alice said
 
 Over time the memory file grows — you can inspect memory.json to review past interactions.
 
-✅ Why Use This?
+# ✅ Why Use This?
 
 Privacy: Everything stays on your local machine.
 
@@ -95,7 +95,7 @@ Learning/Prototyping: Great for students, hackathons, demos (and given your back
 
 Customization: Easily hackable – you own the whole stack.
 
-🔍 Getting Involved / Contribution
+# 🔍 Getting Involved / Contribution
 
 Feel free to fork the repo, play with it, and submit pull requests. Potential contributions include:
 
@@ -109,7 +109,7 @@ Example integrations with open-source LLMs (e.g., Llama, GPT-NeoX)
 
 Better documentation, tests, and UI enhancements
 
-📜 License
+# 📜 License
 
 Specify your license here (for example: MIT).
 
