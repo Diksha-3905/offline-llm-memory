@@ -1,4 +1,4 @@
-# ... offline-llm-memory ...
+# offline-llm-memory 
 
 A lightweight, offline memory module for LLM-based chat agents
 (Repository by Diksha — GitHub: Diksha-3905)
