@@ -116,8 +116,8 @@ Specify your license here (for example: MIT).
 If you haven’t selected a license yet, you may want to add LICENSE file in the repo to clarify usage rights.
 
 📞 Contact
-
-~‌­ Diksha (<github.com/Diksha-3905>)
+~ waghdiksha935@gmail.com
+~‌­ Diksha (https://github.com/Diksha-3905)
 Feel free to open issues if you run into problems or propose enhancements.
 
 Thanks for checking out offline-llm-memory! I hope it becomes a helpful base for your next AI/ML/LLM project.
